@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stl2cad"
+version = "0.1.0"
+description = "Convert STL meshes into watertight analytic solid B-reps (STEP AP242)"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "networkx",
+    "trimesh",
+    "shapely",
+    "rtree",
+    "pymeshlab",
+    "fast-simplification",
+]
+# pythonocc-core and PySide6 come from conda-forge, not pip.
+
+[project.scripts]
+stl2cad = "stl2cad.cli:main"
+
+[project.gui-scripts]
+stl2cad-gui = "app.main:main"
+
+[tool.setuptools]
+packages = ["stl2cad", "app"]

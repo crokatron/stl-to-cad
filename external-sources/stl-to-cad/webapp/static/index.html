@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STL → CAD Converter</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <h1>STL&nbsp;→&nbsp;CAD</h1>
+    <p class="sub">mesh → watertight solid → STEP</p>
+
+    <label id="drop" for="file">
+      <input type="file" id="file" accept=".stl" hidden>
+      <span id="dropText">Drop an STL here<br><small>or click to browse</small></span>
+    </label>
+    <div id="samples"></div>
+
+    <details id="params" open>
+      <summary>Parameters</summary>
+      <div class="row">
+        <label>Method
+          <select id="method">
+            <option value="faceted">faceted — reliable, heavy</option>
+            <option value="arcwise">arcwise — compact, experimental</option>
+            <option value="hybrid">hybrid</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label>Analytic tol (mm) <input type="number" id="tol" value="0.5" step="0.05" min="0.02"></label>
+        <label>Decimate to (tris) <input type="number" id="faces" value="25000" step="5000" min="2000"></label>
+      </div>
+      <div class="row">
+        <label>Dihedral (°) <input type="number" id="dihedral" value="18" step="1" min="3"></label>
+        <label>Arc simplify (mm) <input type="number" id="arc" value="0.15" step="0.05" min="0.01"></label>
+      </div>
+      <label class="chk"><input type="checkbox" id="refine" checked> split / merge refinement</label>
+      <p id="methodNote" class="note"></p>
+    </details>
+
+    <button id="run" disabled>Convert</button>
+
+    <div id="status" class="hidden"></div>
+
+    <div id="results" class="hidden">
+      <h2>Result</h2>
+      <div id="verdict"></div>
+      <table id="metrics"></table>
+      <div id="notes"></div>
+      <div id="downloads"></div>
+    </div>
+
+    <footer>Runs entirely on this machine. <a href="/static/help.html" target="_blank">help</a></footer>
+  </aside>
+
+  <main id="view">
+    <div id="toolbar">
+      <button data-layer="solid" class="on">Solid</button>
+      <button data-layer="mesh">Input mesh</button>
+      <button data-layer="dev">Deviation</button>
+      <span class="sep"></span>
+      <button id="bytype">By type</button>
+      <button id="wire">Wireframe</button>
+      <button id="reset">Reset view</button>
+      <span id="legend" class="hidden"></span>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div id="hint">Convert a model to see it here</div>
+  </main>
+</div>
+
+<script src="/static/vendor/three.min.js"></script>
+<script src="/static/vendor/OrbitControls.js"></script>
+<script src="/static/vendor/GLTFLoader.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

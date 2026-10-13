@@ -1,0 +1,65 @@
+{
+  "slug": "stl-to-cad",
+  "title": "STL to CAD Converter",
+  "summary": "Convert a triangle mesh into CAD boundary geometry and inspect the result before downloading STEP or BREP. The reliable faceted method follows triangles and may produce a heavy model; experimental analytic methods try to make a more compact representation. Conversion does not recreate the original designer’s feature tree.",
+  "features": [
+    [
+      "Mesh input",
+      "Upload an STL; the hosted route enforces a 32 MB limit.",
+      "Conversion workflow"
+    ],
+    [
+      "Method selection",
+      "Faceted, arcwise and hybrid strategies with different fidelity, size and robustness tradeoffs.",
+      "Conversion workflow"
+    ],
+    [
+      "Controls",
+      "Analytic tolerance, decimation target, dihedral threshold, arc simplification and refinement.",
+      "Conversion workflow"
+    ],
+    [
+      "Inspection",
+      "Solid, Input mesh, Deviation, By type and Wireframe views.",
+      "Conversion workflow"
+    ],
+    [
+      "Validation",
+      "Review closure, solid count, volume/deviation information and timings when available.",
+      "Conversion workflow"
+    ],
+    [
+      "Downloads",
+      "Export STEP, BREP and result archives for downstream CAD work.",
+      "Conversion workflow"
+    ]
+  ],
+  "workflows": [
+    [
+      "Convert a first part",
+      [
+        "Start with a small, closed STL whose scale you know. Keep the original unchanged.",
+        "Upload the STL, choose faceted as the baseline and inspect the triangle target. Decimation changes the mesh used for subsequent work, so document that choice.",
+        "Choose Convert and wait for the job result. Do not treat an output file alone as proof of a closed solid.",
+        "Read the validation result: closure, solid count, dimensions, volume and deviation. Inspect holes and thin features visually."
+      ]
+    ],
+    [
+      "Compare a compact analytic result",
+      [
+        "Save the baseline result, then try an analytic method with explicit tolerance values.",
+        "Inspect By type to see which surfaces were fitted and Deviation to locate differences. A compact file is not automatically the more accurate one.",
+        "Arcwise is experimental and may leave open edges or a sheet body. Decide whether repair in your CAD tool is acceptable rather than describing every output as watertight."
+      ]
+    ],
+    [
+      "Take the result into CAD",
+      [
+        "Download STEP for interchange or BREP for OpenCascade-compatible tools.",
+        "Import it into your CAD application and check units, solid status, hole geometry and overall dimensions.",
+        "Keep the source mesh and conversion settings with the output. A faceted solid is still faceted; converting the file format does not produce editable sketches and dimensions."
+      ]
+    ]
+  ],
+  "limits": "A local static server cannot perform CAD conversion. The package needs the configured OpenCascade/Python environment or the NAS conversion service. No new full CAD integration test was performed for this documentation update."
+}

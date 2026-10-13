@@ -1,0 +1,75 @@
+[
+  {
+    "boxes": [
+      {
+        "h": 48,
+        "selector": "#dropText",
+        "text": "Drop or choose a small closed mesh whose size you know.",
+        "title": "Start with an STL",
+        "w": 114.46875,
+        "x": 112.265625,
+        "y": 108
+      },
+      {
+        "h": 40,
+        "selector": "#method",
+        "text": "Faceted is heavier; analytic approaches need extra inspection.",
+        "title": "Choose the tradeoff",
+        "w": 311,
+        "x": 14,
+        "y": 252
+      },
+      {
+        "h": 46,
+        "selector": "#run",
+        "text": "Inspect the result and solid status before using a downloaded CAD body.",
+        "title": "Convert, then validate",
+        "w": 311,
+        "x": 14,
+        "y": 501.171875
+      }
+    ],
+    "height": 1408,
+    "width": 2055,
+    "title": "Actual tool · controls at a glance",
+    "caption": "Actual application screenshot. Numbered boxes point to the controls described below. ",
+    "key": "stl-to-cad"
+  },
+  {
+    "boxes": [
+      {
+        "h": 39,
+        "selector": "#detail",
+        "text": "Change the illustration’s detail before trying the example conversion.",
+        "title": "Explore mesh complexity",
+        "w": 260,
+        "x": 320,
+        "y": 535.703125
+      },
+      {
+        "h": 52,
+        "selector": "#format",
+        "text": "Faceted and analytic concepts illustrate the choice; no CAD kernel is running.",
+        "title": "Compare the strategy",
+        "w": 260,
+        "x": 318,
+        "y": 613.703125
+      },
+      {
+        "h": 532.9375,
+        "selector": "#result",
+        "text": "The demo labels real solid validity as not evaluated.",
+        "title": "Check the result boundary",
+        "w": 517.078125,
+        "x": 1228.90625,
+        "y": 325.703125
+      }
+    ],
+    "height": 1408,
+    "width": 2055,
+    "key": "simulation",
+    "title": "Try the working offline example",
+    "caption": "Screenshot of this project’s interactive demo. Side-by-side services are explicitly simulated.",
+    "cropHeight": 899.640625
+  }
+]

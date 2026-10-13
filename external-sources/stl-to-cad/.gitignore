@@ -1,0 +1,8 @@
+out/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+bench_report.html
+.pytest_cache/

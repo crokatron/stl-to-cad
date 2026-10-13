@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>STL → CAD — help</title><link rel="stylesheet" href="/static/style.css">
+<style>body{padding:32px;max-width:760px;margin:auto}h2{margin-top:28px}code{background:#262a33;padding:1px 5px;border-radius:4px}</style>
+</head><body>
+<h1>STL → CAD Converter</h1>
+<p>Converts a triangle mesh (STL) into a watertight solid B-rep and exports it as
+<b>STEP</b> (+ BREP). Siemens NX imports the STEP and turns it into a native
+Parasolid body, so no Parasolid SDK is needed.</p>
+
+<h2>Methods</h2>
+<ul>
+<li><b>faceted</b> (default) — every mesh triangle becomes a face. Always produces
+a closed solid with zero deviation from the mesh, but the STEP file is large
+(one face per triangle).</li>
+<li><b>arcwise</b> (experimental) — segments the mesh, fits real
+plane/cylinder/cone/sphere/torus surfaces plus B-spline patches, and rebuilds a
+compact B-rep (~1 face per feature). Currently may leave a few open edges — import
+the STEP as a sheet body and run one <i>Sew</i>/<i>Heal</i> in NX.</li>
+</ul>
+
+<h2>Parameters</h2>
+<table id="metrics">
+<tr><td>Analytic tol</td><td>max distance (mm) for a patch to be accepted as an exact plane/cylinder/… — lower = stricter</td></tr>
+<tr><td>Decimate to</td><td>target triangle count after cleanup. Big STLs must come down; ~20–40 k is a good range</td></tr>
+<tr><td>Dihedral</td><td>region-growing angle limit (°). Lower splits at gentler edges (more, smaller patches)</td></tr>
+<tr><td>Arc simplify</td><td>how aggressively boundary curves are straightened (arcwise only)</td></tr>
+</table>
+
+<h2>Reading the result</h2>
+<p><b>By type</b> — colours each face by the surface it was fitted to, so you can
+see at a glance what got recognised:
+<span style="color:#9aa6b8">plane</span>,
+<span style="color:#4c9aff">cylinder</span>,
+<span style="color:#3ecf8e">cone</span>,
+<span style="color:#ffb454">sphere</span>,
+<span style="color:#c58af9">torus</span>,
+<span style="color:#ff6b6b">B-spline / freeform</span>.
+Turn on <b>Wireframe</b> with it to inspect patch boundaries.</p>
+<p><b>Deviation</b> — colours the input mesh by its distance to the reconstructed
+solid: <span style="color:#2b6cff">blue</span> = on the surface,
+<span style="color:#3ecf8e">green</span> = half the tolerance,
+<span style="color:#ff6b6b">red</span> = at or beyond the tolerance.</p>
+
+<h2>Limits</h2>
+<p>Very dense meshes (e.g. a fine grille with &gt; ~90 k irreducible triangles)
+are refused — decimate them in your mesh tool first. Everything runs locally;
+nothing is uploaded anywhere.</p>
+<p><a href="/">← back</a></p>
+</body></html>

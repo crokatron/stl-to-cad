@@ -1,0 +1,23 @@
+name: stl2cad
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pythonocc-core=7.9.0
+  - numpy
+  - scipy
+  - scikit-learn
+  - networkx
+  - trimesh
+  - rtree
+  - shapely
+  - pyside6
+  - pip
+  - pip:
+      - pymeshlab
+      - manifold3d
+      - fast-simplification
+      - pytest
+      - fastapi
+      - "uvicorn[standard]"
+      - python-multipart

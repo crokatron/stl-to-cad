@@ -1,5 +1,7 @@
 # STL to CAD Converter
 
+**Maintaining this project? [Start here](docs/START-HERE.md) · [Detailed handover](docs/HANDOVER.md)**
+
 Convert a triangle mesh into CAD boundary geometry and inspect the result before downloading STEP or BREP. The reliable faceted method follows triangles and may produce a heavy model; experimental analytic methods try to make a more compact representation. Conversion does not recreate the original designer’s feature tree.
 
 **Private preview · not published.**
@@ -12,7 +14,7 @@ Download `demo.html` using GitHub’s Download raw file control, then open it in
 
 ### Actual tool · controls at a glance
 
-Actual application screenshot. Numbered boxes point to the controls described below. 
+Actual application screenshot. Numbered boxes point to the controls described below.
 
 ![STL to CAD Converter — numbered controls](docs/images/guide-1.jpg)
 

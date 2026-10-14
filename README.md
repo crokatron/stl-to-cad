@@ -4,7 +4,9 @@
 
 Convert a triangle mesh into CAD boundary geometry and inspect the result before downloading STEP or BREP. The reliable faceted method follows triangles and may produce a heavy model; experimental analytic methods try to make a more compact representation. Conversion does not recreate the original designer’s feature tree.
 
-**Private preview · not published.**
+[Publication checks and remaining limits](docs/PUBLICATION.md)
+
+**Public source preview · MIT for original contributions.**
 
 [Open the visual manual](docs/USER-MANUAL.md) · [Download the self-contained demo](demo.html) · [Release notes](CHANGELOG.md)
 
